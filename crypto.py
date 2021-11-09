@@ -58,8 +58,8 @@ def create_shared_key(private_key, peer_public_key):
     derived_key = HKDF(
         algorithm=hashes.SHA256(),
         length=32,
-        salt=None,
-        info=None,
+        salt=b"\x00",
+        info=b"\x00",
     ).derive(shared_key)
 
     return derived_key
